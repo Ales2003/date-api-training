@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JS & Date API</title>
+</head>
+<body>
+
+<h1>JS & Date API</h1>
+<p>UTC -  Coordinated Universal Time - more exact than GMTm based atom calculations</p>
+<p>GMT -  Greenwich Mean Time</p>
+<p>Timestamp -  period of time in miliseconds after 01/01/1970</p>
+</body>
+
+<script>
+
+    const date = new Date()
+
+    console.group('Initialize the Date object');
+
+    console.group('Constructor without params new Date()');
+    console.log(new Date());
+    console.groupEnd();
+
+    console.group('Constructor with params');
+
+    console.group('Milliseconds');
+    console.log('From milliseconds new Date(milliseconds)');
+    const msec = 0;
+    console.log(new Date(msec));
+    console.log('From unix format in seconds new Date(milliseconds)');
+    const timestamp = 1530826365;
+    console.log(new Date(timestamp*1000));
+    console.groupEnd();
+
+    console.group('String');
+    console.log('From String new Date(dateString)');
+    const dString = '2019-09-01';
+    console.log(new Date(dString));
+    console.log('From String using new Date(Date.parce(dateString))');
+    const dStringParce = '2019-09-01';
+    console.log(new Date(dStringParce));
+    console.groupEnd();
+
+    console.group('Numbers');
+    console.log('From Numbers new Date(year, month, day, hours, minutes, seconds, milliseconds)');
+    //month staarts with 0
+    console.log(new Date(2019, 8, 1, 14, 14, 14, 14));
+    //minimum 2 numbers
+    console.log(new Date(2019, 0));
+    console.groupEnd();
+
+    console.group('Timezones')
+    console.group('Without timezones')
+    console.log('JavaScript, without any information about the timezone, will consider the date as UTC, and will automatically perform a conversion to the current computer timezone.');
+    console.groupEnd();
+    console.group('With timezones')
+    console.log('Specify a timezone by adding it in +HOURS format, or by adding the timezone name wrapped in parentheses');
+    console.log(new Date('July 22, 2018 07:22:13 GMT+0700'));
+    console.groupEnd();
+    console.groupEnd();
+    
+    console.groupEnd('Constructor with params');
+
+    console.groupEnd('Initialize the Date object');
+
+
+    console.group('Date conversions and formatting');
+    console.log('date.toString()');
+    console.log(date.toString());
+
+    console.log('date.toTimeString()');
+    console.log(date.toTimeString());
+    
+    console.log('date.toUTCString()');
+    console.log(date.toUTCString());
+
+    console.log('date.toDateString()');
+    console.log(date.toDateString());
+
+    console.log('date.toISOString()');
+    console.log(date.toISOString());
+
+    console.log('date.toLocaleString()');
+    console.log(date.toLocaleString());
+
+    console.log('date.toLocaleTimeString()');
+    console.log(date.toLocaleTimeString());
+
+    console.log('date.getTime()');
+    console.log(date.getTime());
+    console.groupEnd('Date conversions and formatting');
+
+
+    console.group('The Date object getter methods');
+    console.log('date.getDate()');
+    console.log(date.getDate());
+    
+    console.log('date.getDay()');
+    console.log(date.getDay());
+
+    console.log('date.getFullYear()');
+    console.log(date.getFullYear());
+
+    console.log('date.getMonth()');
+    console.log(date.getMonth());
+
+    console.log('date.getHours()');
+    console.log(date.getHours());
+
+    console.log('date.getMinutes()');
+    console.log(date.getMinutes());
+
+    console.log('date.getSeconds()');
+    console.log(date.getSeconds());
+
+    console.log('date.getMilliseconds()');
+    console.log(date.getMilliseconds());
+
+    console.log('date.getTime()');
+    console.log(date.getTime());
+
+    console.log('date.getTimezoneOffset()');
+    console.log(date.getTimezoneOffset());
+    console.groupEnd('The Date object getter methods');
+
+
+    console.group('Equivalent UTC versions ');
+    console.log('');
+    console.log();
+    console.groupEnd('Equivalent UTC versions ');
+
+    console.group('Editing a date. setDay and setMonth start numbering from 0, so for example March is month 2.');
+    console.log('date.setDate(newValue)');
+    console.log('date.setFullYear(newValue)');
+    console.log('date.setMonth(newValue)');
+    console.log('date.setHours(newValue)');
+    console.log('date.setMinutes(newValue)');
+    console.log('date.setSeconds(newValue)');
+    console.log('date.setMilliseconds(newValue)');
+    console.log('date.setTime(newValue)');
+    console.log('date.setTimezoneOffset(newValue)');
+    console.groupEnd('Editing a date ');
+
+    console.group('Equivalent UTC versions');
+    console.log('');
+    console.log();
+    console.groupEnd('Equivalent UTC versions');
+
+    console.group('Date “overlaping” ');
+    console.log('');
+    console.log();
+    console.groupEnd('Date “overlaping” ');
+
+    console.group('Get the current timestamp');
+    console.log('Date.now()');
+    console.log(Date.now());
+
+    console.log('The same');
+    console.log('new Date().getTime()');
+    console.log(new Date().getTime());
+    console.groupEnd('Get the current timestamp');
+
+    console.group('Format dates according to the locale');
+    console.log("const date = new Date('July 22, 2018 07:22:13')");
+    console.log("new Intl.DateTimeFormat().format(date)");
+    const dateI = new Date('July 22, 2018 07:22:13');
+    console.log(new Intl.DateTimeFormat().format(dateI));
+    console.groupEnd('Format dates according to the locale');
+
+
+</script>
+
+</html>
